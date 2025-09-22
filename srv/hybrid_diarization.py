@@ -43,7 +43,7 @@ class HybridDiarization:
     def _init_pyannote(self):
         """初始化 PyAnnote 分离器"""
         try:
-            from pyannote_diarization import PyAnnoteDiarization
+            from .pyannote_diarization import PyAnnoteDiarization
             self.pyannote_diarizer = PyAnnoteDiarization()
             if self.pyannote_diarizer.is_available():
                 print(" PyAnnote 分离器可用")

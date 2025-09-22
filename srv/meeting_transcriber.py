@@ -38,7 +38,7 @@ class MeetingTranscriber:
 
     def _init_asr(self, model_config):
         """动态初始化ASR引擎"""
-        from cross_platform_asr import CrossPlatformASR
+        from .cross_platform_asr import CrossPlatformASR
 
         print("初始化语音识别引擎...")
 

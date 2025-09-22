@@ -34,7 +34,7 @@ HuggingFace Token 获取和使用指南
 
    方式3: 代码中直接传入
    ```python
-   from pyannote_diarization import PyAnnoteDiarization
+   from srv.pyannote_diarization import PyAnnoteDiarization
    diarizer = PyAnnoteDiarization(token="your_token_here")
    ```
 

@@ -111,7 +111,7 @@ def setup_pyannote():
     # 步骤4: 测试模型加载
     print("\n4. 测试模型加载...")
     try:
-        from pyannote_diarization import PyAnnoteDiarization
+        from .pyannote_diarization import PyAnnoteDiarization
         diarizer = PyAnnoteDiarization()
         print(" PyAnnote 模型加载成功!")
         return True

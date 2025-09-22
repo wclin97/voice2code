@@ -385,7 +385,7 @@ def _test_custom_model(engine, model_name):
     print("-" * 40)
 
     try:
-        from cross_platform_asr import CrossPlatformASR
+        from .cross_platform_asr import CrossPlatformASR
 
         print("正在初始化 ASR 引擎...")
         asr = CrossPlatformASR(model_name)
