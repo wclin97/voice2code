@@ -68,6 +68,10 @@ class CrossPlatformASR:
         """初始化 MLX Whisper (Apple Silicon)"""
         try:
             import mlx_whisper
+        except ImportError:
+            raise RuntimeError("MLX Whisper 不可用。请确保在 Apple Silicon Mac 上运行，并已安装 mlx-whisper")
+
+        try:
             self.asr_engine = "mlx"
 
             # 根据模式选择模型
@@ -146,7 +150,10 @@ class CrossPlatformASR:
 
     def _transcribe_with_mlx(self, audio_file: str, language: str = None) -> Dict:
         """使用 MLX Whisper 转录"""
-        import mlx_whisper
+        try:
+            import mlx_whisper
+        except ImportError:
+            raise RuntimeError("MLX Whisper 不可用。请确保在 Apple Silicon Mac 上运行，并已安装 mlx-whisper")
 
         result = mlx_whisper.transcribe(
             audio_file,

@@ -3,18 +3,39 @@
 验证 mlx-community/whisper-large-v3-turbo 模型是否正常工作
 """
 
-import mlx_whisper
 import os
+import platform
+
+# 只在支持的平台上导入 mlx_whisper
+try:
+    import mlx_whisper
+    MLX_AVAILABLE = True
+except ImportError:
+    MLX_AVAILABLE = False
+    mlx_whisper = None
 
 
 def test_mlx_whisper():
     """测试MLX Whisper模型"""
+
+    # 检查平台兼容性
+    if not MLX_AVAILABLE:
+        print(" MLX Whisper 模型测试")
+        print("=" * 40)
+        print(" MLX Whisper 不可用")
+        print("原因: MLX 仅支持 Apple Silicon (M1/M2/M3) Mac")
+        print(f"当前平台: {platform.system()} {platform.machine()}")
+        print("\n建议:")
+        print("- 在 Apple Silicon Mac 上安装: pip install mlx-whisper")
+        print("- 在其他平台上使用 OpenAI Whisper 引擎")
+        return False
 
     model_path = "mlx-community/whisper-large-v3-turbo"
 
     print(" MLX Whisper 模型测试")
     print("=" * 40)
     print(f"模型路径: {model_path}")
+    print(f"平台: {platform.system()} {platform.machine()}")
 
     # 检查是否有测试音频
     test_audio_paths = [
@@ -152,11 +173,10 @@ def test_platform_compatibility():
     except ImportError:
         print(" MLX 框架: 不可用")
 
-    # 检查mlx-whisper是否可用
-    try:
-        import mlx_whisper
+    # 使用全局变量检查mlx-whisper
+    if MLX_AVAILABLE:
         print(" mlx-whisper: 已安装")
-    except ImportError:
+    else:
         print(" mlx-whisper: 未安装")
 
 

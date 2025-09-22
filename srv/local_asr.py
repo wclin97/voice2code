@@ -1,12 +1,20 @@
 """
 本地语音转文字模块 (Local ASR)
-使用 mlx-whisper 进行完全本地化的语音识别
+使用 mlx-whisper 进行完全本地化的语音识别 (仅支持 Apple Silicon)
 """
 
-import mlx_whisper
+import platform
 import numpy as np
 from typing import Dict, List, Tuple
 import soundfile as sf
+
+# 只在 Apple Silicon 上导入 mlx_whisper
+try:
+    import mlx_whisper
+    MLX_AVAILABLE = True
+except ImportError:
+    MLX_AVAILABLE = False
+    mlx_whisper = None
 
 
 class LocalASR:
@@ -19,6 +27,9 @@ class LocalASR:
         Args:
             model_path: 模型路径，使用本地MLX格式的whisper模型
         """
+        if not MLX_AVAILABLE:
+            raise RuntimeError("MLX Whisper 不可用。请确保在 Apple Silicon Mac 上运行，并已安装 mlx-whisper")
+
         self.model_path = model_path
         print(f"正在加载本地ASR模型: {model_path}")
 
