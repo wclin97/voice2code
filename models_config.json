@@ -1,0 +1,60 @@
+{
+  "whisper_models": {
+    "mlx": {
+      "available_models": [
+        "mlx-community/whisper-tiny",
+        "mlx-community/whisper-base",
+        "mlx-community/whisper-small",
+        "mlx-community/whisper-medium",
+        "mlx-community/whisper-large-v2",
+        "mlx-community/whisper-large-v3",
+        "mlx-community/whisper-large-v3-turbo"
+      ],
+      "default": "mlx-community/whisper-large-v3-turbo",
+      "descriptions": {
+        "mlx-community/whisper-tiny": "最小模型 (~40MB, 速度最快，准确度较低)",
+        "mlx-community/whisper-base": "基础模型 (~150MB, 速度快，准确度一般)",
+        "mlx-community/whisper-small": "小型模型 (~250MB, 平衡速度和准确度)",
+        "mlx-community/whisper-medium": "中型模型 (~770MB, 准确度较高)",
+        "mlx-community/whisper-large-v2": "大型模型v2 (~1.5GB, 准确度高)",
+        "mlx-community/whisper-large-v3": "大型模型v3 (~1.5GB, 准确度很高)",
+        "mlx-community/whisper-large-v3-turbo": "大型turbo模型 (~1.5GB, 速度和准确度兼顾)"
+      }
+    },
+    "openai": {
+      "available_models": [
+        "tiny",
+        "base",
+        "small",
+        "medium",
+        "large-v2",
+        "large-v3"
+      ],
+      "default": "large-v3",
+      "descriptions": {
+        "tiny": "最小模型 (~40MB, 速度最快，准确度较低)",
+        "base": "基础模型 (~150MB, 速度快，准确度一般)",
+        "small": "小型模型 (~250MB, 平衡速度和准确度)",
+        "medium": "中型模型 (~770MB, 准确度较高)",
+        "large-v2": "大型模型v2 (~1.5GB, 准确度高)",
+        "large-v3": "大型模型v3 (~1.5GB, 准确度最高)"
+      }
+    }
+  },
+  "diarization_models": {
+    "pyannote": {
+      "speaker_diarization": "pyannote/speaker-diarization-3.1",
+      "segmentation": "pyannote/segmentation-3.0",
+      "voice_activity_detection": "pyannote/voice-activity-detection"
+    }
+  },
+  "user_preferences": {
+    "auto_select_best_model": true,
+    "prefer_speed_over_accuracy": false,
+    "max_model_size_gb": 2.0,
+    "language_hints": {
+      "zh": "中文优化建议使用 large-v3",
+      "en": "英文可以使用较小模型获得好效果"
+    }
+  }
+}

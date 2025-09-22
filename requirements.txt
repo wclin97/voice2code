@@ -1,0 +1,16 @@
+# ASR 引擎 (根据平台选择)
+mlx-whisper          # Apple Silicon 专用，性能最优
+openai-whisper       # 跨平台，兼容所有系统
+# faster-whisper     # 可选，更快的推理速度
+
+# 核心依赖
+librosa
+scikit-learn
+numpy
+pandas
+soundfile
+matplotlib
+seaborn
+
+# PyAnnote (可选，效果更好但需要token)
+pyannote.audio

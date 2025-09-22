@@ -1,0 +1,89 @@
+# 音频输入输出文件夹内容 (保留文件夹结构但忽略内容)
+input/*
+!input/.gitkeep
+output/*
+!output/.gitkeep
+
+# 用户配置文件
+user_config.json
+
+# Python 相关
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# 虚拟环境
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+CLAUDE.md
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# 系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 日志文件
+*.log
+
+# 临时文件
+*.tmp
+*.temp
+
+# 模型缓存文件
+.cache/
+models/
+*.bin
+*.pt
+*.pth
+
+# HuggingFace 缓存
+.huggingface/
+
+# 配置导出文件
+config_export_*.json
+
+# 测试文件
+test_audio.*
+sample_audio.*
+
+# 备份文件
+*.bak
+*.backup
