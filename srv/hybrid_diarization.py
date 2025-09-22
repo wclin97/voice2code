@@ -4,7 +4,7 @@
 """
 
 from typing import Dict, Optional
-from local_diarization import LocalDiarization
+from .local_diarization import LocalDiarization
 
 
 class HybridDiarization:

@@ -6,7 +6,7 @@
 import json
 import platform
 from typing import Dict, List
-from hybrid_diarization import HybridDiarization
+from .hybrid_diarization import HybridDiarization
 import pandas as pd
 from datetime import datetime
 

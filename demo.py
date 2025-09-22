@@ -6,8 +6,8 @@
 import os
 import sys
 import subprocess
-from meeting_transcriber import MeetingTranscriber
-from cross_platform_asr import check_platform_compatibility
+from srv.meeting_transcriber import MeetingTranscriber
+from srv.cross_platform_asr import check_platform_compatibility
 
 
 def clear_screen():
@@ -477,16 +477,16 @@ def main():
                     show_platform_compatibility()
 
                 elif choice == "3":
-                    run_script("model_manager.py", "Whisper 模型管理")
+                    run_script("srv/model_manager.py", "Whisper 模型管理")
 
                 elif choice == "4":
-                    run_script("setup_pyannote.py", "PyAnnote 设置向导")
+                    run_script("srv/setup_pyannote.py", "PyAnnote 设置向导")
 
                 elif choice == "5":
-                    run_script("token_helper.py", "HuggingFace Token 助手")
+                    run_script("srv/token_helper.py", "HuggingFace Token 助手")
 
                 elif choice == "6":
-                    run_script("test_mlx_whisper.py", "MLX Whisper 测试")
+                    run_script("srv/test_mlx_whisper.py", "MLX Whisper 测试")
 
                 elif choice == "7":
                     show_system_overview()

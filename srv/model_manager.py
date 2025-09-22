@@ -6,8 +6,8 @@
 
 import sys
 import os
-from config_manager import ConfigManager
-from cross_platform_asr import CrossPlatformASR, check_platform_compatibility
+from .config_manager import ConfigManager
+from .cross_platform_asr import CrossPlatformASR, check_platform_compatibility
 
 
 def clear_screen():

@@ -7,7 +7,7 @@
 import platform
 import sys
 from typing import Dict, Optional
-from config_manager import ConfigManager
+from .config_manager import ConfigManager
 
 
 def get_platform_info():
