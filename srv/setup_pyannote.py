@@ -111,7 +111,13 @@ def setup_pyannote():
     # 步骤4: 测试模型加载
     print("\n4. 测试模型加载...")
     try:
-        from .pyannote_diarization import PyAnnoteDiarization
+        try:
+            from .pyannote_diarization import PyAnnoteDiarization
+        except ImportError:
+            import sys
+            import os
+            sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+            from srv.pyannote_diarization import PyAnnoteDiarization
         diarizer = PyAnnoteDiarization()
         print(" PyAnnote 模型加载成功!")
         return True
@@ -137,7 +143,7 @@ def main():
         test = input("\n是否运行测试? (y/n): ").strip().lower()
         if test in ['y', 'yes', '是']:
             print("\n运行测试:")
-            os.system("python test_mlx_whisper.py")
+            os.system("python srv/test_mlx_whisper.py")
     else:
         print("\n PyAnnote 设置失败")
         print("可以继续使用本地聚类方法进行说话人分离")

@@ -234,7 +234,7 @@ def _save_results(result, audio_file):
 
     # 保存为文本格式
     txt_file = os.path.join(output_dir, f"{base_name}_transcript.txt")
-    from meeting_transcriber import MeetingTranscriber
+    from srv.meeting_transcriber import MeetingTranscriber
     transcriber = MeetingTranscriber()
     transcriber.export_to_txt(result, txt_file)
 
@@ -443,7 +443,7 @@ def show_system_overview():
 
     # 导入配置管理器
     try:
-        from config_manager import ConfigManager
+        from srv.config_manager import ConfigManager
         config = ConfigManager()
         config.show_config_summary()
     except Exception as e:

@@ -6,8 +6,16 @@
 
 import sys
 import os
-from .config_manager import ConfigManager
-from .cross_platform_asr import CrossPlatformASR, check_platform_compatibility
+
+# 处理相对导入和独立运行的兼容性
+try:
+    from .config_manager import ConfigManager
+    from .cross_platform_asr import CrossPlatformASR, check_platform_compatibility
+except ImportError:
+    # 当作为独立脚本运行时，添加父目录到路径
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    from srv.config_manager import ConfigManager
+    from srv.cross_platform_asr import CrossPlatformASR, check_platform_compatibility
 
 
 def clear_screen():
@@ -385,7 +393,10 @@ def _test_custom_model(engine, model_name):
     print("-" * 40)
 
     try:
-        from .cross_platform_asr import CrossPlatformASR
+        try:
+            from .cross_platform_asr import CrossPlatformASR
+        except ImportError:
+            from srv.cross_platform_asr import CrossPlatformASR
 
         print("正在初始化 ASR 引擎...")
         asr = CrossPlatformASR(model_name)
